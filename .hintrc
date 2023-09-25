@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "meta[name=theme-color]",
+          "body[style=background-image: url(https://wallpaperaccess.com/full/7270362.gif); background-position: bottom 100% right 100%]"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+.App {
+  text-align: center;
+}
+.App-header {
+  background-image: url("https://c.wallhere.com/photos/cb/a1/landscape_collage_digital_art_nature_artwork-257725.jpg!d");
+  background-position: 50%;
+  box-shadow: 0 0 10px rgba(252, 250, 250, 0.5);
+  height: 160px;
+  padding: 10px;
+  color: rgba(229, 241, 241, 0.734);
+}
+.text-header {
+  text-align: right;
+  font-weight: 500;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 200%;
+}
+/*  */
+.form-control {
+  width: 90%;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.buttonLogin {
+  width: 35%;
+}
+.textForm {
+  text-align: center;
+  font-size: 180%;
+  color: rgba(12, 11, 11, 0.808);
+  /* color: #eab3b300; */
+}
+.demoForm {
+  text-align: center;
+}
+.buttonLogOut {
+  font-size: 10px !important;
+}
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+.personIcon {
+  margin-left: 20px;
+}
+.reservationMenuNumber {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* border: solid 1px red; */
+  margin: 10px;
+  width: 400px;
+}
+.reservationMenuDate {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* border: solid 1px red; */
+  margin: 5px;
+  max-height: 180px;
+}
+.seatNameClick {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(33, 33, 151);
+  font-size: 80%;
+}
+.reservationMenuStatus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* border: solid 1px red; */
+  margin: 10px;
+  width: 400px;
+  padding: 1%;
+  font-size: 70%;
+}
+.bookedStatusStyle {
+  font-size: 70%;
+  color: green;
+}
+.reservstionBox {
+  padding: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family: Comic Sans MS, Comic Sans, cursive !important;
+}
+.textReserv {
+  font-size: 60%;
+  color: rgb(17, 17, 109);
+}
+
+.buttonRoleLogin {
+  display: flex !important;
+}
+.buttonRoleText {
+  justify-content: right !important;
+  margin-right: 20px !important;
+  margin-top: 10px !important;
+}
+.textHeaderRes {
+  font-family: Comic Sans MS, Comic Sans, cursive !important;
+}
+.toolbar-menu {
+  /* width: 120px;   */
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}

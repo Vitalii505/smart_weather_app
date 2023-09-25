@@ -1,0 +1,68 @@
+{
+  "name": "my-smart-weather-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@ludovicm67/react-dotenv": "^1.0.7",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.10",
+    "@mui/styled-engine-sc": "^5.14.10",
+    "@mui/x-date-pickers": "^6.15.0",
+    "@reduxjs/toolkit": "^1.6.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "caniuse-lite": "^1.0.30001538",
+    "dayjs": "^1.11.10",
+    "firebase": "^8.7.1",
+    "history": "^5.0.0",
+    "moment": "^2.29.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "react-router": "^5.2.0",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^5.0.1",
+    "redux": "^4.1.0",
+    "redux-form": "^8.3.7",
+    "remove": "^0.1.5",
+    "styled-components": "^5.3.11",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-dotenv && react-scripts start",
+    "build": "react-dotenv && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "react-dotenv": {
+    "whitelist": ["API_KEY"]
+  }
+}
