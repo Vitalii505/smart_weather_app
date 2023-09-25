@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, TextField, Stack, SnackbarContent } from '@mui/material';
 import { paths } from "../../constants";
 
-const Login = ({ history, match }) => {
+const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");

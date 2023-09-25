@@ -3,23 +3,22 @@ import {Box, Container, Card} from '@mui/material';
 import { fetchWeatherData } from "../../services/WeatherService"
 import SearchBar from "../../components/SearchBar";
 import WeatherDisplay from "../../components/WeatherDisplay";
+import ErrorDisplay from "../../components/ErrorDisplay"
   
 const WeatherViewPage = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState('');
 
   const handleSearch = async (weatherData) => {
+    console.log(" 1......._ weatherData _^^^^^^^^^^^^--> ", JSON.stringify(weatherData, null, 2));
     try {
       const data = await fetchWeatherData(weatherData);
-      console.log("^^^^^^^^^^^^^^^_ DATA _^^^^^^^^^^^^^^^ ");
-      console.log(data);
-      console.log("^^^^^^^^^^^^^^^_ DATA _^^^^^^^^^^^^^^^ ");
+      console.log(" 2......._ data _^^^^^^^^^^^^--> ", JSON.stringify(data, null, 2));
       setWeatherData(data);
       setError('');
     } catch (err) {
-      console.log("^^^^^^^^^^^^^^^_ ERROR _^^^^^^^^^^^^^^^ ");
-      console.log(err.message);
-      console.log("^^^^^^^^^^^^^^^_ ERROR _^^^^^^^^^^^^^^^ ");
+      console.log(" 3.0_----ERROR___......._ err _^^^^^^^^^^^^--> ");
+      console.log(err);
       setError(err.message);
       setWeatherData(null);
     }
@@ -43,6 +42,7 @@ const WeatherViewPage = () => {
             <Box>
                 <h2 style={{color: 'rgba(112, 11, 11, 0.808)', textAlign: "center", marginBottom: "1vw"}}>Smart Weather Search</h2>
                 <SearchBar onSearch={handleSearch} />
+                {error && <ErrorDisplay message={error} />}
                 <WeatherDisplay data={weatherData} />
             </Box>
           </Box>

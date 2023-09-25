@@ -19,7 +19,6 @@ export const fetchWeatherData = async (weatherData) => {
             params: {
                 q: weatherData?.title,
                 appid: API_KEY,
-                date: '2023-09-30',
                 units: 'metric',
             },
         });
@@ -27,12 +26,14 @@ export const fetchWeatherData = async (weatherData) => {
         console.log("1.....  +++++ SERVICE ++++> ");
         console.log(response); 
 
-        const { main, weather, wind } = response.data;
+        const { main, weather, wind, name } = response.data;
         const temperature = main.temp;
         const description = weather[0].description;
         const humidity = main.humidity;
         const windSpeed = wind.speed;
-        return { temperature, description, humidity, windSpeed };
+        const tempMin = main.temp_min;
+        const tempMax = main.temp_max;
+        return { temperature, description, humidity, windSpeed, tempMin, tempMax, name };
     } catch (error) {
         throw errosMessage.isApi;
     }

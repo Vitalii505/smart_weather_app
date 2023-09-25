@@ -16,7 +16,7 @@ const Home = ({history}) => {
                 Start project demo
         </Button>,
         <Button
-            onClick={()=> window.open("https://github.com/")}
+            onClick={()=> window.open("https://github.com/Vitalii505/smart_weather_app")}
             color='inherit'
             key="github"
             style={styleButtons}>
