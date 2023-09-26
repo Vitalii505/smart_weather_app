@@ -8,7 +8,7 @@
 /coverage
 
 # production
-/build
+# /build
 
 # misc
 .DS_Store
@@ -20,7 +20,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-.vscode
-public/logo192.png
-public/logo512.png
