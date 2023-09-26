@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import {Box, Container, Card} from '@mui/material';
-import { fetchWeatherData } from "../../services/WeatherService"
+import { Box, Container, Card, Button } from '@mui/material';
+import CalendarViewMonthOutlinedIcon from '@mui/icons-material/CalendarViewMonthOutlined';
+import { fetchWeatherData, fetchWeatherForecastData } from "../../services/WeatherService"
 import SearchBar from "../../components/SearchBar";
 import WeatherDisplay from "../../components/WeatherDisplay";
+import WeatherCardsWeek from "../../components/WeatherCardsWeek";
 import ErrorDisplay from "../../components/ErrorDisplay"
 import { WeatherViewStyles } from "../../styles/ListStyles";
 
@@ -10,6 +12,7 @@ const WeatherViewPage = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState('');
   const [isForWeek, setIsForWeek] = useState(false);
+  const [weatherForecas, setWeatherForecas] = useState(null);
 
   const handleSearch = async (weatherData) => {
     try {
@@ -19,6 +22,18 @@ const WeatherViewPage = () => {
     } catch (err) {
       setError(err.message);
       setWeatherData(null);
+    }
+  };
+
+  const renderWeatherCards = async (e, weatherData) => {
+    e.preventDefault();
+    try {
+      const data = await fetchWeatherForecastData(weatherData);
+      console.log(data);
+      setWeatherForecas(data)
+      setIsForWeek(true) 
+    } catch (err) {
+      setWeatherForecas(null);
     }
   };
 
@@ -47,10 +62,28 @@ const WeatherViewPage = () => {
               <WeatherDisplay data={weatherData} setForWeek={getWeatherForWeek} />
             </Box>
             <Box marginLeft="4vw">
-              {isForWeek ? <p> Weather on 7-days </p> : <></>}
+              {weatherData &&
+                <Button
+                  onClick={(e) => renderWeatherCards(e, weatherData)}
+                  size="small" 
+                  style={{
+                    color: "#1c2566",
+                    background: "rgba(229, 241, 241, 0.434)",
+                    fontSize: "70%",
+                    height: "30px"
+                  }}>
+                    <CalendarViewMonthOutlinedIcon fontSize="large" />
+                    for 7-days
+                </Button>}
+              
+              {isForWeek
+                ? <WeatherCardsWeek data={weatherForecas} />
+                : <></>
+              }
             </Box>
           </Box>
         </Card>
+        
       </Container>
     </React.Fragment>
   );

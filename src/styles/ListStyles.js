@@ -28,32 +28,41 @@ export const SearchItemStyles = styled(Paper)(({ theme }) => ({
 
 export const BasicWeatherCardStyles = styled(Grid)(() => ({
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     alignItems:"center"
 }));
 
-export const WeatherDateParamStyles = styled(Typography)(() => ({
-    variant: "h4",
+export const WeatherDateParamStyles = styled(Typography)(({isWeek}) => ({
+    variant: isWeek ? "overline" : "h4",
     color: "#0d47a1",
     fontWeight: "500"
 }));
 
-export const WeatherCityParamStyles = styled(Typography)(() => ({
-    variant: "h3",
-    component: "h2",
+export const WeatherCityParamStyles = styled(Typography)(({isWeek}) => ({
+    variant: isWeek ? "overline" : "h3",
+    component: isWeek ? "overline" : "h6",
     color: "#00352c",
     marginBottom: "2"
 }));
 
-export const WeatherTemperatureParamStyles = styled(Typography)(() => ({
-    variant: "h5",
+export const WeatherTemperatureParamStyles = styled(Typography)(({isWeek}) => ({
+    variant: isWeek ? "overline" : "h5",
     color: "#330e62",
     marginBottom: "1px"
 }));
 
-export const WeatherDescriptionParamStyles = styled(Typography)(() => ({
+export const WeatherDescriptionParamStyles = styled(Typography)(({isWeek}) => ({
     variant: "overline",
     color: "#009688",
     fontWeight: "600",
-    textDecoration: "underline #009688"
+    textDecoration: "underline #009688",
+    fontSize: isWeek ? "60%" : ""
+}));
+
+export const WeatherCardPaper = styled(Paper)(({ theme }) => ({
+    backgroundColor: "rgba(229, 241, 241, 0.634)",
+    ...theme.typography.body2,
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
 }));

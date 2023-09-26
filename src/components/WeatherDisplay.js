@@ -1,22 +1,15 @@
 import React from "react";
-import { Card, CardContent, Typography, Grid, Divider, Box, IconButton} from "@mui/material";
-import CalendarViewMonthOutlinedIcon from '@mui/icons-material/CalendarViewMonthOutlined';
+import { Card, CardContent, Typography, Grid, Divider, Box} from "@mui/material";
 import WeatherIcons from "./WeatherIcons"
 import { BasicWeatherCardStyles, WeatherDateParamStyles, WeatherCityParamStyles, WeatherTemperatureParamStyles, WeatherDescriptionParamStyles } from "../styles/ListStyles"
 
-const WeatherDisplay = ({ data, setForWeek }) => {
+const WeatherDisplay = ({ data }) => {
     if (data === null ) return <div></div>;
-    console.log("3....**********> WeatherDisplay <********** DATA ", JSON.stringify(data));
     const { temperature, description, humidity, windSpeed, tempMin, tempMax, city, date } = data;
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setForWeek(true);
-    };
 
     return (
         <div>
-            <Card style={{background: "rgba(229, 241, 241, 0.534)", borderRadius: "10px"}}>
+            <Card style={{background: "rgba(229, 241, 241, 0.634)", borderRadius: "10px"}}>
                 <CardContent>
                     <BasicWeatherCardStyles>
                         <Box>
@@ -77,16 +70,6 @@ const WeatherDisplay = ({ data, setForWeek }) => {
                                     </Typography>
                             </Grid>
                         </Grid>
-                    </div>
-                    <div >
-                        <form
-                            onSubmit={handleSubmit}
-                            style={{ display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "1vw" }}>
-                                <IconButton type="submit">
-                                    <CalendarViewMonthOutlinedIcon fontSize="large" />
-                                </IconButton>
-                            <p>7-days</p>
-                        </form>
                     </div>
                 </CardContent>
             </Card>

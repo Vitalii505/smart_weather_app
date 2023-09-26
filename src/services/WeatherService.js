@@ -1,8 +1,8 @@
 import axios from 'axios';
 import env from '@ludovicm67/react-dotenv';
-import { setCurrentDateFormat } from "../helpers/index"
+import { setCurrentDateFormat, convertListToWeekdays } from "../helpers/index"
 
-console.log("API_KEY>>>>>>>>>>>>>>>>>>. ", env)
+
 const API_KEY = env.API_KEY;
 const WEATHER_API_URL = env.WEATHER_API_URL;
 
@@ -34,6 +34,25 @@ export const fetchWeatherData = async (weatherData) => {
             tempMax: main.temp_max
         }
         return result;
+    } catch (error) {
+        throw errosMessage.isApi;
+    }
+};
+
+
+export const fetchWeatherForecastData = async (weatherData) => {
+    if (weatherData === null | undefined) throw errosMessage.isValue;
+    try {
+        const response = await axios.get('https://api.openweathermap.org/data/2.5/forecast', {
+            params: {
+                q: weatherData?.city,
+                appid: API_KEY,
+                units: 'metric',
+            },
+        });
+        const data = response.data;
+        if (data?.list?.length <= 0) return;
+        return convertListToWeekdays(data?.list, data.city?.name);
     } catch (error) {
         throw errosMessage.isApi;
     }
