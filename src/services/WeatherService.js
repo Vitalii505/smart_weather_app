@@ -4,7 +4,7 @@ import { setCurrentDateFormat } from "../helpers/index"
 
 console.log("API_KEY>>>>>>>>>>>>>>>>>>. ", env)
 const API_KEY = env.API_KEY;
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+const WEATHER_API_URL = env.WEATHER_API_URL;
 
 const errosMessage = {
     isValue: new Error('Failed to send weather API request.'),
@@ -13,17 +13,15 @@ const errosMessage = {
 
 
 export const fetchWeatherData = async (weatherData) => {
-    console.log("0.....+++++__ Enter Title City __+++++ SERVICE ++++> ", weatherData?.title);
     if (weatherData === null | undefined) throw errosMessage.isValue;
     try {
-        const response = await axios.get(BASE_URL, {
+        const response = await axios.get(WEATHER_API_URL, {
             params: {
                 q: weatherData?.title,
                 appid: API_KEY,
                 units: 'metric',
             },
         });
-        console.log("1.....  ++++__ response.data __+++++ SERVICE ++++> ", JSON.stringify(response.data, null, 2));
         const { main, weather, wind, name, dt, timezone } = response.data;
         const result = {
             city: name,

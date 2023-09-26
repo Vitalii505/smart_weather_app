@@ -1,4 +1,4 @@
-import {Paper, styled} from "@mui/material"
+import {Paper, Grid, Typography, styled} from "@mui/material"
 
 export const WeatherViewStyles = styled('div')(({ theme }) => ({
     ...theme.typography.button,
@@ -24,4 +24,36 @@ export const SearchItemStyles = styled(Paper)(({ theme }) => ({
     border: '0.2px solid #ff6f00',
     color: 'white',
     marginBottom: "2vw"
+}));
+
+export const BasicWeatherCardStyles = styled(Grid)(() => ({
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems:"center"
+}));
+
+export const WeatherDateParamStyles = styled(Typography)(() => ({
+    variant: "h4",
+    color: "#0d47a1",
+    fontWeight: "500"
+}));
+
+export const WeatherCityParamStyles = styled(Typography)(() => ({
+    variant: "h3",
+    component: "h2",
+    color: "#00352c",
+    marginBottom: "2"
+}));
+
+export const WeatherTemperatureParamStyles = styled(Typography)(() => ({
+    variant: "h5",
+    color: "#330e62",
+    marginBottom: "1px"
+}));
+
+export const WeatherDescriptionParamStyles = styled(Typography)(() => ({
+    variant: "overline",
+    color: "#009688",
+    fontWeight: "600",
+    textDecoration: "underline #009688"
 }));
