@@ -3,41 +3,28 @@ import Layout from '../components/Layout'
 import Login from '../pages/login/Login'
 import Home from '../pages/home/Home'
 import WeatherViewPage from '../pages/weather-view/WeatherViewPage'
-import Reserved from '../pages/reserved/Reserved'
+import MapWeatherPage from '../pages/weather-view/WeatherViewPage'
 import Error404Page from '../pages/error404/Error404Page'
 
 export const routes = [
   {
-    path: paths.home(), // /login
+    path: paths.home(),
     exact: true,
     component: Home
   }, 
+
   {
-    path: paths.login(), // /login
+    path: paths.login(),
     exact: true,
     component: Login
   }, 
 
-
-
-  // admin routes
-  // {
-  //   component: Layout,
-  //   path: paths.admin.prefix(), // /admin
-  //   routes: [
-  //     { exact: true, path: paths.admin.users(), component: Users }, // /admin/users
-  //     { exact: true, path: paths.admin.workplaces(), component: Workplaces }, // /admin/workplaces
-  //   ],
-  // },
-
-
-  // user routes
   {
     component: Layout,
-    path: paths.user.prefix(), // /profile
+    path: paths.user.prefix(), 
     routes: [
-      { exact: true, path: paths.user.weatherView(), component: WeatherViewPage }, // /profile/plan
-      { exact: true, path: paths.user.reservation(), component: Reserved }, // /profile/reservation
+      { exact: true, path: paths.user.weatherView(), component: WeatherViewPage }, 
+      { exact: true, path: paths.user.mapWeather(), component: MapWeatherPage },
     ],
   },
 

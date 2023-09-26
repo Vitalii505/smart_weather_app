@@ -5,9 +5,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { paths } from "../../constants";
 
-const styleButtons = { marginBottom: "0.5rem", borderRadius: "5px" };
-
-const Home = ({history}) => {
+const Home = ({ history }) => {
+    const styleButtons = { marginBottom: "0.5rem", borderRadius: "5px" };
     const buttons = [
         <Button
             onClick={async ()=> await history.push(paths.user.weatherView())}

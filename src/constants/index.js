@@ -4,7 +4,7 @@ export const paths = {
   user: {
     prefix: () => '/profile',
     weatherView: () => getUserRoute('/weather-view'),
-    reservation: () => getUserRoute('/reservation'),
+    mapWeather: () => getUserRoute('/maps-weather'),
   },
 }
 
@@ -16,7 +16,7 @@ export const userTabs = [
     title: 'Weather View',
   },
   {
-    url: paths.user.reservation(),
-    title: 'Reserved'
+    url: paths.user.mapWeather(),
+    title: 'Maps Weather View'
   }
 ]

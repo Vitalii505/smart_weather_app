@@ -1,5 +1,6 @@
 import axios from 'axios';
 import env from '@ludovicm67/react-dotenv';
+import { setCurrentDateFormat } from "../helpers/index"
 
 console.log("API_KEY>>>>>>>>>>>>>>>>>>. ", env)
 const API_KEY = env.API_KEY;
@@ -12,7 +13,7 @@ const errosMessage = {
 
 
 export const fetchWeatherData = async (weatherData) => {
-    console.log("0.....00000000000000  +++++ SERVICE ++++> ", weatherData);
+    console.log("0.....+++++__ Enter Title City __+++++ SERVICE ++++> ", weatherData?.title);
     if (weatherData === null | undefined) throw errosMessage.isValue;
     try {
         const response = await axios.get(BASE_URL, {
@@ -22,18 +23,19 @@ export const fetchWeatherData = async (weatherData) => {
                 units: 'metric',
             },
         });
-
-        console.log("1.....  +++++ SERVICE ++++> ");
-        console.log(response); 
-
-        const { main, weather, wind, name } = response.data;
-        const temperature = main.temp;
-        const description = weather[0].description;
-        const humidity = main.humidity;
-        const windSpeed = wind.speed;
-        const tempMin = main.temp_min;
-        const tempMax = main.temp_max;
-        return { temperature, description, humidity, windSpeed, tempMin, tempMax, name };
+        console.log("1.....  ++++__ response.data __+++++ SERVICE ++++> ", JSON.stringify(response.data, null, 2));
+        const { main, weather, wind, name, dt, timezone } = response.data;
+        const result = {
+            city: name,
+            date: setCurrentDateFormat(dt, timezone),
+            temperature: main.temp,
+            description: weather[0]?.description,
+            humidity: main.humidity,
+            windSpeed: wind.speed,
+            tempMin: main.temp_min,
+            tempMax: main.temp_max
+        }
+        return result;
     } catch (error) {
         throw errosMessage.isApi;
     }

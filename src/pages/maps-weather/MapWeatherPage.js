@@ -20,7 +20,7 @@ const useStyles = styled({
   },
 });
 
-const Reserved = () => {
+const MapWeatherPage = () => {
   const classes = useStyles();
   const placesList = useSelector((reservedPlace) => reservedPlace.placesList);
   console.log("placesList-", placesList[0]);
@@ -70,4 +70,4 @@ const Reserved = () => {
   );
 };
 
-export default Reserved;
+export default MapWeatherPage;

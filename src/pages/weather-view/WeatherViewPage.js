@@ -4,7 +4,8 @@ import { fetchWeatherData } from "../../services/WeatherService"
 import SearchBar from "../../components/SearchBar";
 import WeatherDisplay from "../../components/WeatherDisplay";
 import ErrorDisplay from "../../components/ErrorDisplay"
-  
+import { WeatherViewStyles } from "../../styles/ListStyles";
+
 const WeatherViewPage = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState('');
@@ -26,21 +27,19 @@ const WeatherViewPage = () => {
   
   return (
     <React.Fragment>
-      <Container style={{ paddingLeft: "4vw", paddingTop: "20px", display: 'flex', justifyContent: "center"}}>
+      <Container >
         <Card
           style={{
-            display: "inline-block",
-            width: "84vw",
-            // height: "28rem",
-            background: "#eab3b373",
-            position: "relative",
-            boxShadow: "0 0 10px rgba(0,0,0,0.5)",
-            padding: "10px",
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            background: "rgba(0, 0, 0, 0)",
+            padding: "1vw",
           }}
         >
-          <Box style={{display: "flex", justifyContent: "center", flexDirection: "row", marginTop: "1vw"}}>
+          <Box style={{display: "flex", justifyContent: "center", flexDirection: "row", padding: "5px"}}>
             <Box>
-                <h2 style={{color: 'rgba(112, 11, 11, 0.808)', textAlign: "center", marginBottom: "1vw"}}>Smart Weather Search</h2>
+                <WeatherViewStyles>{"Smart Weather search"}</WeatherViewStyles>
                 <SearchBar onSearch={handleSearch} />
                 {error && <ErrorDisplay message={error} />}
                 <WeatherDisplay data={weatherData} />
