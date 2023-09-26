@@ -11,6 +11,7 @@
           "body[style=background-image: url(https://wallpaperaccess.com/full/7270362.gif); background-position: bottom 100% right 100%]"
         ]
       }
-    ]
+    ],
+    "manifest-file-extension": "off"
   }
 }
