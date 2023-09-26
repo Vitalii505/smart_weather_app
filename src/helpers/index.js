@@ -22,7 +22,7 @@ export const setCurrentDateFormat = (day, timezone) => {
 export const convertListToWeekdays = (list, city) => {
   let weekDays = [];
   list.forEach((item, i) => {
-    if (weekDays.length <= 5) {
+    if (weekDays.length <= 7) {
       if (weekDays.length === 0) {
         let isDifferDay = findDifferDay(list[0].dt, item.dt)
         if (isDifferDay > dayInSeconds) weekDays.push(setConvertedData(item, city));
