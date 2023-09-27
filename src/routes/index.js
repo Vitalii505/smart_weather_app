@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import Login from '../pages/login/Login'
 import Home from '../pages/home/Home'
 import WeatherViewPage from '../pages/weather-view/WeatherViewPage'
-import MapWeatherPage from '../pages/weather-view/WeatherViewPage'
+import MapWeatherPage from '../pages/maps-weather/MapWeatherPage'
 import Error404Page from '../pages/error404/Error404Page'
 
 export const routes = [

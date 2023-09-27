@@ -8,7 +8,7 @@ import WeatherCardsWeek from "../../components/WeatherCardsWeek";
 import ErrorDisplay from "../../components/ErrorDisplay"
 import { WeatherViewStyles } from "../../styles/ListStyles";
 
-const WeatherViewPage = () => {
+const WeatherViewPage = (props) => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState('');
   const [isForWeek, setIsForWeek] = useState(false);
@@ -29,7 +29,6 @@ const WeatherViewPage = () => {
     e.preventDefault();
     try {
       const data = await fetchWeatherForecastData(weatherData);
-      console.log(data);
       setWeatherForecas(data)
       setIsForWeek(true) 
     } catch (err) {
